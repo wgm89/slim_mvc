@@ -36,6 +36,7 @@ namespace Slim;
 
 define('DS',DIRECTORY_SEPARATOR);
 
+//require("");
 // Ensure mcrypt constants are defined even if mcrypt extension is not loaded
 if (!extension_loaded('mcrypt')) {
     define('MCRYPT_MODE_CBC', 0);
