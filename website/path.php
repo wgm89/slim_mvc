@@ -17,6 +17,7 @@ define('PUBLIC','public');
 define('ASSETS','_assets');
 define('CTL','controllers');
 define('MOD','models');
+define('VIEW','views');
 define('HEL','library');
 define('LIB','helper');
 define('HOME_CTL','index');//homepage controller

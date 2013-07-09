@@ -5,10 +5,14 @@
  * author : saeed
  * date   : 2013-7-9
  */
-class indexController{
+class indexController extends Controller{
 
     public function index(){
-        echo 'index';
+        $this->render('index',array('data'=>'test'));
+    }
+    public function none(){
+        $this->response->status('404');
+    
     }
 
 }

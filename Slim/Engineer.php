@@ -36,14 +36,15 @@ class Engineer{
             $classname = array_pop($group);
             $classfile = $classname.".php";
             if(!empty($group)){
-                $classfile = implode(DS,$group).DS.$classfile;
+                $classfile = implode('/',$group).'/'.$classfile;
             }
-            if(!file_exists(APPLICATION.DS.CTL.DS.$classfile)){
+            if(!file_exists(APPLICATION.'/'.CTL.'/'.$classfile)){
                 return false;
             }
-            require(APPLICATION.DS.CTL.DS.$classfile);
+            require(APPLICATION.'/'.CTL.'/'.$classfile);
             $classname .= 'Controller';
-            call_user_func_array(array($classname,$action),$this->param);
+            $classinstance = new $classname;
+            call_user_func_array(array($classinstance,$action),$this->param);
         }else{
             return false;
         }
