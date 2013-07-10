@@ -17,7 +17,7 @@ Because of this and become wonderful
  main use for site rewrite . format :  dir.controller.action<br/>
 
 ###Controller#
-    <code>
+
        class indexController extends Controller{
 
            public function index(){
@@ -28,24 +28,21 @@ Because of this and become wonderful
 
            }
        }
-    </code>
 
 
 ###Model
 
 base on [Medoo](http://medoo.in/) Library ,  please see [document](http://medoo.in/doc)
 
-but have many diffrences
+but have many differences
 
-<code>
-	class testModel extends Model{
+        class testModel extends Model{
 
-        public function __construct(){
-            parent::__construct();
+            public function __construct(){
+                parent::__construct();
+            }
+            protected $table = 'test'; //the tablename just write here , medoo functions' parameters about table  removed:
+
         }
-        protected $table = 'test'; //the tablename just write here , medoo functions' parameters about table  removed:
 
-    }
-
-</code>
 ###View
