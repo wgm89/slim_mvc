@@ -169,7 +169,7 @@ class Router
             if(is_callable($mw)){
                 call_user_func_array($mw, array($route));
             }else{
-                
+                $this->engineer->receivestr($route->getCallable(),array());
             }
         }
 

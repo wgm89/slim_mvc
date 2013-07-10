@@ -18,6 +18,11 @@ define('ASSETS','_assets');
 define('CTL','controllers');
 define('MOD','models');
 define('VIEW','views');
+define('CONFIG','config');
 define('HEL','library');
 define('LIB','helper');
 define('HOME_CTL','index');//homepage controller
+define('ROUTE','routes');
+
+
+

@@ -8,18 +8,11 @@
 
 return array(
 
-
-
-
-
-
-
-
-
-
-
-
-
+    //If you add a new route added here
+    'routes'=>array(
+        'default',//default route
+        
+    ),
 
 
 

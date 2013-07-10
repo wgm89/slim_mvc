@@ -10,7 +10,7 @@
 function load_model($model){
     $modelfile = $model.'.php';
     if(file_exists($modelfile)){
-        require(APPLICATION.DS.MOD.DS.$modfile);
+        require(APPLICATION.'/'.MOD.'/'.$modfile);
     }else{
         exit($model.'is not exists');
     }
@@ -19,7 +19,7 @@ function load_model($model){
 function load_helper($helper){
     $helperfile = $helper.'.php';
     if(file_exists($helperfile)){
-        require(APPLICATION.DS.HEL.DS.$helperfile);
+        require(APPLICATION.'/'.HEL.'/'.$helperfile);
     }else{
         exit($helper.'is not exists');
     }
@@ -28,10 +28,22 @@ function load_helper($helper){
 function load_library($library){
     $libraryfile = $library.'.php';
     if(file_exists($libraryfile)){
-        require(APPLICATION.DS.LIB.DS.$libraryfile);
+        require(APPLICATION.'/'.LIB.'/'.$libraryfile);
     }else{
         exit($library.'is not exists');
     }
 }
 
+function load_route_from_cfg($app){
+    if(file_exists(APPLICATION.'/'.CONFIG.'/'.'app.cfg.php')){
+        $appcfg = require(APPLICATION.'/'.CONFIG.'/'.'app.cfg.php');
+        if(isset($appcfg['routes'])&&is_array($appcfg['routes'])){
+            foreach($appcfg['routes'] as $route){
+                require(APPLICATION.'/'.ROUTE.'/'.$route.'.rou.php');
+            }
+        }
+    }else{
+        exit('app.cfg.php is not exists');
+    }
+}
 
