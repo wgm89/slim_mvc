@@ -8,7 +8,10 @@
 class SaeedController{
     
     public function index(){
-        echo 'only test';
+        load_model('test');
+        $testmodel = new testModel();
+        $result = $testmodel->select("*");
+        print_r($result);
     }
 
 }
