@@ -31,5 +31,21 @@ Because of this and become wonderful
     </code>
 
 
-###Model###View
-developing....
+###Model
+
+base on [Medoo](http://medoo.in/) Library ,  please see [document](http://medoo.in/doc)
+
+but have many diffrences
+
+<code>
+	class testModel extends Model{
+
+        public function __construct(){
+            parent::__construct();
+        }
+        protected $table = 'test'; //the tablename just write here , medoo functions' parameters about table  removed:
+
+    }
+
+</code>
+###View
