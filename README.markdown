@@ -46,4 +46,17 @@ but have many differences
 
         }
 
+how to use
+
+        class SaeedController{
+    
+            public function index(){
+            load_model('test');
+            $testmodel = new testModel();
+            $result = $testmodel->select("*");
+            print_r($result);
+        }
+
+}
+
 ###View
