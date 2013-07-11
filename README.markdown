@@ -41,8 +41,22 @@ but have many differences
             public function __construct(){
                 parent::__construct();
             }
-            protected $table = 'test'; //the tablename just write here , medoo functions' parameters about table  removed:
+            //the tablename just write here , medoo functions' parameters about table  removed:
+            protected $table = 'test'; 
 
         }
+
+how to use
+
+        class SaeedController{
+    
+            public function index(){
+            load_model('test');
+            $testmodel = new testModel();
+            $result = $testmodel->select("*");
+            print_r($result);
+        }
+
+}
 
 ###View
