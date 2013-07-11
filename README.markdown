@@ -41,7 +41,8 @@ but have many differences
             public function __construct(){
                 parent::__construct();
             }
-            protected $table = 'test'; //the tablename just write here , medoo functions' parameters about table  removed:
+            //the tablename just write here , medoo functions' parameters about table  removed:
+            protected $table = 'test'; 
 
         }
 
