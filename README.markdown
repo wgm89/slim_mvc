@@ -60,3 +60,14 @@ how to use
 }
 
 ###View
+
+###Other
+
+load_view(); 
+
+how to use :
+
+you can use in template or other position,$status true or false ,default false,
+if true it will return $tempaltefile as a varible instead of output directly;
+load_view($templatefile,$data,$status);
+
