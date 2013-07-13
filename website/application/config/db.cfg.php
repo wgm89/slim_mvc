@@ -1,10 +1,13 @@
 <?php
-
+    //multi database
     return array(
-        'type'=>'mysql',
-        'database'=>'test',
-        'username'=>'root',
-        'password'=>'root123',
+        'test'=>array(
+            'type'=>'mysql',
+            'database'=>'test',
+            'username'=>'root',
+            'password'=>'root123',
+
+        ),
     );
 
 ?>

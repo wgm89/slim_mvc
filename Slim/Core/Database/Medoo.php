@@ -31,8 +31,8 @@ class Medoo
     protected $dbconfig = '';
     protected $table = ''; 
 
-	public function __construct()
-	{
+    public function __construct()
+    {
         $param = func_get_args();
         if(!empty($param)){
             $options = $param[0];
@@ -65,18 +65,22 @@ class Medoo
                 echo $e->getMessage();
             }
         }else{
-            $db = load_db_cfg();
-            $this->database_name = $db['database'];
-            $this->username = $db['username'];
-            $this->password = $db['password'];
-            $this->setpdo($db['type']);
+      
         }
-	}
+    }
+    public function loadconfig($dbconfig){
+        $db = load_db_cfg($dbconfig);
+        $this->database_name = $db['database'];
+        $this->username = $db['username'];
+        $this->password = $db['password'];
+        $this->setpdo($db['type']);
+        return $this;
+    }
     public function table($table){
         $this->table = $table;
         return $this;
     }
-    public function setpdo($type){
+    protected function setpdo($type){
         switch ($type)
         {
         case 'mysql':

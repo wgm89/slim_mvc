@@ -8,5 +8,7 @@ class Model extends Medoo{
     
     public function __construct(){
         parent::__construct();
+        $this->loadconfig($this->dbconfig);
     }
+
 }
