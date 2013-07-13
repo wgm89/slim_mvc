@@ -27,6 +27,18 @@ Because of this and become wonderful
                $this->response->status('404');
 
            }
+           
+           public function fetchall(){
+              //load_model('test');
+              //$testmodel = new testModel();
+              //$result = $testmodel->select("*");
+              //print_r($result);
+              $database = new Medoo();
+              $database = $database->loadconfig('test')->table('test');
+              $result = $database->select("*");
+              print_r($result);
+           }
+           
        }
 
 
@@ -42,6 +54,7 @@ but have many differences
                 parent::__construct();
             }
             //the tablename just write here , medoo functions' parameters about table  removed:
+            protected $dbconfig = 'test';
             protected $table = 'test'; 
 
         }
