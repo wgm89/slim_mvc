@@ -33,6 +33,7 @@ Because of this and become wonderful
               //$testmodel = new testModel();
               //$result = $testmodel->select("*");
               //print_r($result);
+              //you can also use this method to get an database instance
               $database = new Medoo();
               $database = $database->loadconfig('test')->table('test');
               $result = $database->select("*");
@@ -73,7 +74,7 @@ how to use
 }
 
 ###View
-
+    
 ###Other
 
 load_view(); 
