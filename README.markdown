@@ -28,17 +28,6 @@ Because of this and become wonderful
 
            }
            
-           public function fetchall(){
-              //load_model('test');
-              //$testmodel = new testModel();
-              //$result = $testmodel->select("*");
-              //print_r($result);
-              //you can also use this method to get an database instance
-              $database = new Medoo();
-              $database = $database->loadconfig('test')->table('test');
-              $result = $database->select("*");
-              print_r($result);
-           }
            
        }
 
@@ -65,11 +54,19 @@ how to use
         class SaeedController{
     
             public function index(){
-            load_model('test');
-            $testmodel = new testModel();
-            $result = $testmodel->select("*");
-            print_r($result);
-        }
+                load_model('test');
+                $testmodel = new testModel();
+                $result = $testmodel->select("*");
+                print_r($result);
+            }
+            public function fetchall(){
+                //you can also use this method to get an database instance
+                $database = new Medoo();
+                $database = $database->loadconfig('test')->table('test');
+                $result = $database->select("*");
+                print_r($result);
+            }
+
 
 }
 
