@@ -20,5 +20,20 @@ class Controller{
         $this->view->appendData($data);
         $this->view->display($template);
     }
+    
+    public function filter($data){
+        if(is_array($data)){
+            foreach($data as $key=>$val){
+                if(is_array($val)){
+                    $this->filter($val);
+                }else{
+                    $data[$key] = addslashes(htmlspecialchars($val));
+                }
+            }
+        }else{
+            $data = addslashes(htmlspecialchars($data));
+        }
+        return $data;
+    }
 
 }
