@@ -1235,8 +1235,8 @@ class Slim
                 }
             }
             if (!$dispatched) {
-                if($this->engineer->receiveurl($this->request->getResourceUri())){
-                    ##$this->notFound();
+                if(!$this->engineer->receiveurl($this->request->getResourceUri())){
+                    $this->notFound();
                 }
             }
 
