@@ -27,8 +27,7 @@ class Engineer{
                 $group[] = 'index';
             }
         }
-        $this->_parseall($group);
-        return true;
+        return $this->_parseall($group);
     }
     protected function _parseall($group){
         if(count($group)>1){
@@ -45,6 +44,7 @@ class Engineer{
             $classname .= 'Controller';
             $classinstance = new $classname;
             call_user_func_array(array($classinstance,$action),$this->param);
+            return true;
         }else{
             return false;
         }
