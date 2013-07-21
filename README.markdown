@@ -82,4 +82,4 @@ you can use in template or other position,$status true or false ,default false,
 if true it will return $tempaltefile as a varible instead of output directly;
 load_view($templatefile,$data,$status);
 
-if you have any question,contact blandlove123@gmail.com or wgmone@163.com
+if you have any question,contact blandlove123@gmail.com
