@@ -9,7 +9,7 @@ class Cookie
 {
     private static $secret_key;
 
-    public function __construct(){
+    public static function set_seckey(){
         $config = load_cfg('app');
         self::$secret_key = $config['secret_key'];
     }
@@ -47,11 +47,13 @@ class Cookie
 
     public static function get($name)
     {
+        self::set_seckey();
         return isset($_COOKIE[$name]) ? self::_decrypt($_COOKIE[$name]) : null;
     }
 
     public static function set($arg)
     {
+        self::set_seckey();
         $name = $arg['name'];
         $value= self::_encrypt($arg['value']);
         $expire = isset($arg['expire']) ? $arg['expire'] : null;
