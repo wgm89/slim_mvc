@@ -38,6 +38,7 @@ define('DS',DIRECTORY_SEPARATOR);
 require(__DIR__.DS.'Global.php');
 require(__DIR__.DS.'Core'.DS.'Controller.php');
 require(__DIR__.DS.'Core'.DS.'Model.php');
+require(__DIR__.DS.'Common'.DS.'Library'.DS.'Cookie.lib.php');
 // Ensure mcrypt constants are defined even if mcrypt extension is not loaded
 if (!extension_loaded('mcrypt')) {
     define('MCRYPT_MODE_CBC', 0);

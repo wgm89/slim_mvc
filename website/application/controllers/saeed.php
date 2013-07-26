@@ -19,5 +19,9 @@ class SaeedController{
 
 
     }
-
+    public function cookietest(){
+        Cookie::set(array('name'=>'test','value'=>'test'));
+        //echo Cookie::get('test');
+        //Cookie::del(array('name'=>'test'));
+    }
 }
