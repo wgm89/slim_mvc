@@ -13,7 +13,7 @@ return array(
         'default',//default route
         
     ),
-
+    'secret_key'=>'s1d9kz',
 
 
 

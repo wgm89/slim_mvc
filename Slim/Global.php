@@ -48,8 +48,16 @@ function load_route_from_cfg($app){
         exit('app.cfg.php is not exists');
     }
 }
+function load_cfg($config){
+    if(file_exists(APPLICATION.'/'.CONFIG.'/'.$config.'.cfg.php')){
+        $config = require(APPLICATION.'/'.CONFIG.'/'.$config.'.cfg.php');
+        return $config;
+    }
+
+}
+
 function load_db_cfg($dbconfig){
-    if(file_exists(APPLICATION.'/'.CONFIG.'/'.'app.cfg.php')){
+    if(file_exists(APPLICATION.'/'.CONFIG.'/'.'db.cfg.php')){
         $config = require(APPLICATION.'/'.CONFIG.'/'.'db.cfg.php');
         return $config[$dbconfig];
     }
