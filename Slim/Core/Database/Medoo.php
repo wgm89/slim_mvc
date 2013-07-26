@@ -332,9 +332,9 @@ class Medoo
 		{
 			$values[] = is_array($value) ? serialize($value) : $value;
 		}
-		$this->query('INSERT INTO ' . $this->table . ' (' . $keys . ') VALUES (' . $this->data_implode(array_values($values), ',') . ')');
-		
-		return $this->pdo->lastInsertId();
+		$status = $this->query('INSERT INTO ' . $this->table . ' (' . $keys . ') VALUES (' . $this->data_implode(array_values($values), ',') . ')');
+		$id = $this->pdo->lastInsertId();
+		return isset($id)?$id:$status;
 	}
 	
 	public function update($data, $where = null)

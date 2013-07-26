@@ -26,11 +26,11 @@ function load_helper($helper){
 }
 
 function load_library($library){
-    $libraryfile = $library.'.php';
+    $libraryfile = $library.'.lib.php';
     if(file_exists(APPLICATION.'/'.LIB.'/'.$libraryfile)){
         require(APPLICATION.'/'.LIB.'/'.$libraryfile);
     }else{
-        exit($library.'is not exists');
+        exit($library.' is not exists');
     }
 }
 

@@ -19,8 +19,8 @@ define('CTL','controllers');
 define('MOD','models');
 define('VIEW','views');
 define('CONFIG','config');
-define('HEL','library');
-define('LIB','helper');
+define('HEL','helper');
+define('LIB','library');
 define('HOME_CTL','index');//homepage controller
 define('ROUTE','routes');
 
