@@ -94,7 +94,7 @@ how to use
      
     }
 
-    
+or see [slim doc](https://github.com/codeguy/Slim "slim")   
 ###Other
 
 load_view(); 
