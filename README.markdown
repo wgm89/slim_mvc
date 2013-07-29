@@ -73,28 +73,9 @@ how to use
 ###View
 
 ###Rewrite
-    server {
-        listen 80;
-     
-        if (!-f $request_filename) {
-            rewrite ^(.*)$ /index.php last;
-        }
-     
-        location /data/ {
-            try_files $uri $uri/ /data/index.php?$args;
-        }
-     
-        location ~ \.php$ {
-            fastcgi_split_path_info ^(.+\.php)(/.+)$;
-            #fastcgi_pass 127.0.0.1:9000;
-        #   # With php5-fpm:
-            fastcgi_pass unix:/var/run/php5-fpm.sock;
-            include fastcgi_params;
-        }
-     
-    }
 
-or see [slim doc](https://github.com/codeguy/Slim "slim")   
+   try_files $uri $uri/ /index.php;
+
 ###Other
 
 load_view(); 
