@@ -74,7 +74,9 @@ how to use
 
 ###Rewrite
 
-   try_files $uri $uri/ /index.php;
+    nginx:
+
+        try_files $uri $uri/ /index.php;
 
 ###Other
 
