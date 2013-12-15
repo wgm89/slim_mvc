@@ -82,7 +82,7 @@ function load_view($view,$data=array(),$status=false){
             require(APPLICATION.'/'.VIEW.'/'.$view.'.view.php');
         }
     }else{
-        $view.'.view.php is not exists';
+        exit($view.'.view.php is not exists');
     }
 
 }
