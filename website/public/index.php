@@ -13,6 +13,6 @@ $app = new \Slim\Slim();
 
 // load route file
 load_route_from_cfg($app);
-
+pre_load();
 // excute
 $app->run();

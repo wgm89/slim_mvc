@@ -25,15 +25,16 @@ class Controller{
         if(is_array($data)){
             foreach($data as $key=>$val){
                 if(is_array($val)){
-                    $this->filter($val);
+                    $data[$key] = $this->filter($val);
                 }else{
                     $data[$key] = addslashes(htmlspecialchars($val));
                 }
             }
         }else{
-            $data = addslashes(htmlspecialchars($data));
+            return addslashes(htmlspecialchars($data));
         }
         return $data;
     }
+
 
 }

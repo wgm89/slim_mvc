@@ -17,11 +17,11 @@ function load_model($model){
 }
 
 function load_helper($helper){
-    $helperfile = $helper.'.php';
+    $helperfile = $helper.'.hel.php';
     if(file_exists(APPLICATION.'/'.HEL.'/'.$helperfile)){
         require(APPLICATION.'/'.HEL.'/'.$helperfile);
     }else{
-        exit($helper.'is not exists');
+        exit($helper.' is not exists');
     }
 }
 
@@ -83,6 +83,31 @@ function load_view($view,$data=array(),$status=false){
         }
     }else{
         $view.'.view.php is not exists';
+    }
+
+}
+/*pre loaded*/
+function pre_load(){
+     if(file_exists(APPLICATION.'/'.CONFIG.'/'.'app.cfg.php')){
+        $appcfg = require(APPLICATION.'/'.CONFIG.'/'.'app.cfg.php');
+        if(isset($appcfg['default_load'])&&is_array($appcfg['default_load'])){
+            $default_load = $appcfg['default_load'];
+            /*load helper library*/
+            if(isset($default_load['helper'])){
+                $helpers = $default_load['helper'];
+                foreach($helpers as $helper){
+                    load_helper($helper);
+                }
+            }
+            if(isset($default_load['library'])){
+                $libraries = $default_load['library'];
+                foreach($libraries as $library){
+                    load_library($library);
+                }
+            }
+        }
+    }else{
+        exit('app.cfg.php is not exists');
     }
 
 }
