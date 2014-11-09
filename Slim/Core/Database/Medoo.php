@@ -313,11 +313,11 @@ class Medoo
 		return $where_clause;
 	}
 		
-	public function select($columns, $where = null)
+	public function select($columns, $where = null, $ext = null)
 	{
 		$query = $this->query('SELECT ' . (
 			is_array($columns) ? implode(', ', $columns) : $columns
-		) . ' FROM ' . $this->table . $this->where_clause($where));
+		) . ' FROM ' . $this->table . $this->where_clause($where) .' ' .$ext);
 
 		return $query ? $query->fetchAll(
 			(is_string($columns) && $columns != '*') ? PDO::FETCH_COLUMN : PDO::FETCH_ASSOC
