@@ -8,9 +8,16 @@ class Controller{
 
     public function __construct(){
         $this->view = new \Slim\View();
+        /*
         $this->response = new \Slim\Http\Response();
         $this->environment = \Slim\Environment::getInstance();
         $this->request = new \Slim\Http\Request($this->environment);
+         */
+    }
+
+    public function __get($name) {
+        $app = \Slim\Slim::getInstance();
+        return $app->$name();
     }
 
     public function render($template, $data = array())

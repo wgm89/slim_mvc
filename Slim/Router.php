@@ -168,8 +168,6 @@ class Router
         foreach ($route->getMiddleware() as $mw) {
             if(is_callable($mw)){
                 call_user_func_array($mw, array($route));
-            }else{
-                $this->engineer->receivestr($route->getCallable(),array());
             }
         }
 
@@ -177,7 +175,7 @@ class Router
         if(is_callable($route->getCallable())){
             call_user_func_array($route->getCallable(), array_values($route->getParams()));
         }else{
-            $this->engineer->receivestr($route->getCallable(),array_values($route->getParams()));
+            return $this->engineer->receivestr($route->getCallable(),array_values($route->getParams()));
         }
 
         return true;
