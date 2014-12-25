@@ -12,6 +12,9 @@ class Engineer{
 
     public $param = array();//function param
 
+    public $fetch_class;
+    public $fetch_func;
+
     public function receivestr($str,$param){
         $this->param = $param;
         $group = explode(".", trim($str));
@@ -46,6 +49,8 @@ class Engineer{
         }
         if (empty($classname)) return false;
         $action = empty($group) ? 'index' : array_shift($group);
+        $this->fetch_class = $classname;
+        $this->fetch_func = $action;
         $classfile = trim(implode('/', $dir_queue).'/'.$classname.".php", '/');
         $this->param = $group;
         require(APPLICATION.'/'.CTL.'/'.$classfile);
@@ -62,6 +67,8 @@ class Engineer{
             $action = 'index';
         }
         $classname = array_pop($group);
+        $this->fetch_class = $classname;
+        $this->fetch_func = $action;
         $classfile = $classname.".php";
         if(!empty($group)){
             $classfile = implode('/',$group).'/'.$classfile;

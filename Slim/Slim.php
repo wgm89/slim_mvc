@@ -623,6 +623,13 @@ class Slim
     }
 
     /**
+     * @date 2014-12-25
+     */
+    public function engineer() {
+        return $this->engineer;
+    }
+
+    /**
      * Get and/or set the View
      *
      * This method declares the View to be used by the Slim application.
