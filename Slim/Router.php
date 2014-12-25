@@ -69,7 +69,6 @@ class Router
     public function __construct()
     {
         $this->routes = array();
-        $this->engineer = new \Slim\Engineer();
     }
 
     /**
@@ -175,7 +174,8 @@ class Router
         if(is_callable($route->getCallable())){
             call_user_func_array($route->getCallable(), array_values($route->getParams()));
         }else{
-            return $this->engineer->receivestr($route->getCallable(),array_values($route->getParams()));
+            $engineer = \Slim\Slim::getInstance()->engineer();
+            return $engineer->receivestr($route->getCallable(),array_values($route->getParams()));
         }
 
         return true;

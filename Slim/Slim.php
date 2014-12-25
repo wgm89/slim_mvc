@@ -119,6 +119,11 @@ class Slim
     protected $notFound;
 
     /**
+     * @update 2014-12-25
+     */
+    protected $engineer;
+
+    /**
      * @var array
      */
     protected $hooks = array(
