@@ -7,7 +7,6 @@
 class Controller{
 
     public function __construct(){
-        $this->view = new \Slim\View();
         /*
         $this->response = new \Slim\Http\Response();
         $this->environment = \Slim\Environment::getInstance();
@@ -16,8 +15,12 @@ class Controller{
     }
 
     public function __get($name) {
+
         $app = \Slim\Slim::getInstance();
-        return $app->$name();
+        if (method_exists(\Slim\Slim::getInstance(), $name)) {
+            return \Slim\Slim::getInstance()->$name();
+        }
+        throw new Exception($name.' not exists');
     }
 
     public function __call($func, $args) {
@@ -28,14 +31,6 @@ class Controller{
         throw new Exception($func.' not exists');
     }
 
-    public function render($template, $data = array())
-    {
-        //$this->response->status($status);
-        $this->view->setTemplatesDirectory(APPLICATION.'/'.VIEW);
-        $this->view->appendData($data);
-        $this->view->display($template);
-    }
-    
     public function filter($data){
         if(is_array($data)){
             foreach($data as $key=>$val){

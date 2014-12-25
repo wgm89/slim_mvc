@@ -123,6 +123,8 @@ class Slim
      */
     protected $engineer;
 
+    protected $loader;
+
     /**
      * @var array
      */
@@ -193,6 +195,7 @@ class Slim
         $this->response = new \Slim\Http\Response();
         $this->router = new \Slim\Router();
         $this->engineer = new \Slim\Engineer();
+        $this->load = new \Slim\Loader();
         $this->middleware = array($this);
         $this->add(new \Slim\Middleware\Flash());
         $this->add(new \Slim\Middleware\MethodOverride());
@@ -632,6 +635,13 @@ class Slim
      */
     public function engineer() {
         return $this->engineer;
+    }
+
+    /**
+     * @date 2014-12-25
+     */
+    public function load() {
+        return $this->load;
     }
 
     /**

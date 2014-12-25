@@ -63,29 +63,7 @@ function load_db_cfg($dbconfig){
     }
 
 }
-/**
- * load view
- *
- * @param $data    array
- * @param $status  true or false .if true return view contents instead of output directly
- */
-function load_view($view,$data=array(),$status=false){
-    extract($data);
-    if(file_exists(APPLICATION.'/'.VIEW.'/'.$view.'.view.php')){
-        if($status){
-            ob_start();
-            require(APPLICATION.'/'.VIEW.'/'.$view.'.view.php');
-            $content= ob_get_contents();
-            ob_end_clean();
-            return $content;
-        }else{
-            require(APPLICATION.'/'.VIEW.'/'.$view.'.view.php');
-        }
-    }else{
-        exit($view.'.view.php is not exists');
-    }
 
-}
 /*pre loaded*/
 function pre_load(){
      if(file_exists(APPLICATION.'/'.CONFIG.'/'.'app.cfg.php')){
