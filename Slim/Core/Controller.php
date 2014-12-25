@@ -20,6 +20,14 @@ class Controller{
         return $app->$name();
     }
 
+    public function __call($func, $args) {
+        $app = \Slim\Slim::getInstance();
+        if (method_exists($app, $func)) {
+            return call_user_func_array(array($app, $func), $args);
+        }
+        throw new Exception($func.' not exists');
+    }
+
     public function render($template, $data = array())
     {
         //$this->response->status($status);
