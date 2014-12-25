@@ -413,7 +413,7 @@ class Medoo
 		{
 			$where['LIMIT'] = 1;
 		}
-		$data = $this->select($this->table, $columns, $where);
+		$data = $this->select($columns, $where);
 
 		return isset($data[0]) ? $data[0] : false;
 	}
