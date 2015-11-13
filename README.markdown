@@ -1,7 +1,5 @@
 base on  [slim framework](http://slimframework.com/ "slim")
 
-Because of this and become wonderful
-
 ###Main Features
 * **Easy**  
 
